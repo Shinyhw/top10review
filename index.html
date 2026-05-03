@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top10Reviews — Find the Best Before You Buy</title>
+<meta name="description" content="AI-powered product rankings based on real Amazon UK reviews. Find the top 10 products in any category instantly.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c26;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #f0f0f5;
+    --muted: rgba(240,240,245,0.5);
+    --gold: #f5c842;
+    --gold2: #e8a800;
+    --accent: #6c63ff;
+    --accent2: #9d97ff;
+    --green: #22c55e;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(10,10,15,0.9); backdrop-filter: blur(12px); z-index: 100; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--text); }
+  .logo span { color: var(--gold); }
+  .nav-badge { font-size: 11px; font-weight: 600; color: var(--gold); background: rgba(245,200,66,0.12); border: 1px solid rgba(245,200,66,0.25); padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .hero { text-align: center; padding: 80px 40px 60px; position: relative; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 300px; background: radial-gradient(ellipse at center, rgba(108,99,255,0.15) 0%, transparent 70%); pointer-events: none; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent2); margin-bottom: 20px; }
+  .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 20px; height: 1px; background: var(--accent2); }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
+  h1 em { font-style: normal; color: var(--gold); }
+  .hero p { font-size: 17px; color: var(--muted); max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+  .search-wrapper { max-width: 640px; margin: 0 auto; }
+  .search-box { display: flex; background: var(--surface); border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(108,99,255,0.15); }
+  .search-box input { flex: 1; background: none; border: none; outline: none; padding: 18px 20px; font-family: 'DM Sans', sans-serif; font-size: 16px; color: var(--text); min-width: 0; }
+  .search-box input::placeholder { color: var(--muted); }
+  .search-btn { background: var(--gold); color: #0a0a0f; border: none; padding: 14px 28px; margin: 6px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
+  .search-btn:hover { background: var(--gold2); }
+  .search-btn:active { transform: scale(0.98); }
+  .search-btn:disabled {
